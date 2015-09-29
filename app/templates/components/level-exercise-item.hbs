@@ -1,0 +1,94 @@
+{{#if showDecideSection}}
+  <section class="decide">
+      <div class="row">
+          <div class="col-xs-12">
+            {{#if isTrustLevel}}
+                <b>{{t 'components.level-exercise-item.provider.trust' provider=url.providerName}}</b>
+            {{else}}
+                <b>{{t 'components.level-exercise-item.provider' provider=url.providerName}}</b>
+            {{/if}}
+          </div>
+      </div>
+      <div class="row spacer">
+          <div class="col-xs-12">
+            {{browser-window type=user.getBrowserType url=url}}
+          </div>
+      </div>
+      <div class="row spacer">
+          <div class="col-xs-12 col-sm-4 col-md-4">
+              <button class="btn btn-block btn-success" {{action 'decide' false}}>
+                {{#if isTrustLevel}}
+                    Ja
+                {{else}}
+                    Original
+                {{/if}}
+              </button>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4">
+              <button class="btn btn-block btn-danger" {{action 'decide' true}}>
+                {{#if isTrustLevel}}
+                    Nein
+                {{else}}
+                    Phish
+                {{/if}}
+              </button>
+          </div>
+      </div>
+  </section>
+{{/if}}
+{{#if showSelectSection}}
+  <section class="select">
+      <div class="row spacer">
+          <div class="col-xs-12">
+              {{#if onlySelectDomain}}
+                <b>{{t 'components.level-exercise-item.onlySelectDomain'}}</b>
+              {{else}}
+                <b>{{t 'components.level-exercise-item.text'}}</b>
+              {{/if}}
+          </div>
+      </div>
+      <div class="row spacer">
+          <div class="col-xs-12">
+            {{browser-window type=user.getBrowserType url=url selectEnabled=true selectedDomain='selectedDomain'}}
+          </div>
+      </div>
+      <div class="row spacer">
+          <div class="col-xs-12 col-sm-4 col-sm-offset-8 col-md-4 col-md-offset-8">
+              <button class="btn btn-info btn-block" {{action 'selected'}}>
+                  Überprüfen
+              </button>
+          </div>
+      </div>
+  </section>
+{{/if}}
+{{#if showResultSection}}
+  <section class="result">
+      <div class="row">
+          <div class="col-xs-10">
+            <b>{{resultText}}</b>
+          </div>
+          <div class="col-xs-2 clearfix">
+            {{#if resultRight}}
+                <i class="fa fa-smile-o"></i>
+            {{else}}
+                <i class="fa fa-frown-o"></i>
+            {{/if}}
+          </div>
+      </div>
+
+      <div class="row spacer">
+          <div class="col-xs-12">
+            {{browser-window type=user.getBrowserType url=url preSelectGood='domain' preSelectBad=lastSelectedPart}}
+          </div>
+      </div>
+
+      <div class="row spacer">
+          <div class="col-xs-12 col-sm-4 col-sm-offset-8">
+              <button class="btn btn-info btn-block" {{action 'next'}}>
+                Weiter
+              </button>
+          </div>
+      </div>
+  </section>
+{{/if}}
+

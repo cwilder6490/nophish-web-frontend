@@ -1,0 +1,146 @@
+div.dashboard-level{
+  $dashboard-level-font-size: 20px;
+
+  padding: 20px;
+  opacity: 0.5;
+  user-select: none;
+
+  &>div.dashboard-level-content-wrapper{
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: default;
+    text-decoration: none !important;
+
+    div.dashboard-level-locked-icon, div.dashboard-level-skipped-icon, div.dashboard-level-check-icon{
+      position: absolute;
+      z-index: 5;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      i{
+        display: block;
+        text-align: left;
+        vertical-align: middle;
+        font-size: 120px;
+        padding-left: 10%;
+      }
+
+      &.dashboard-level-skipped-icon, &.dashboard-level-check-icon{
+        i{
+          display: block;
+          text-align: left;
+          vertical-align: middle;
+          font-size: 80px;
+          padding-left: 10%;
+          padding-top: 20px;
+        }
+      }
+    }
+
+    div.dashboard-level-info, div.dashboard-level-stats{
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+      padding: 20px;
+
+      box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.5);
+
+      border: 3px solid #1B191C;
+      border-radius: 10px;
+    }
+
+    div.dashboard-level-info{
+      background: linear-gradient(to right, rgba(252,244,208,1) 0%,rgba(248,221,98,1) 50%,rgba(248,221,98,1) 50%,rgba(248,221,98,1) 50%,rgba(249,226,113,1) 100%);
+      text-align: center;
+      color: #000000;
+
+      span.dashboard-level-name, span.dashboard-level-name:active, span.dashboard-level-name:hover{
+        font-size: $dashboard-level-font-size;
+        font-weight: bold;
+        text-decoration: none !important;
+      }
+
+      span.dashboard-level-additional-information{
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: 60%;
+        font-size: 16px;
+        font-weight: normal;
+        transform: translateX(-50%);
+      }
+
+      button.dashboard-level-unlocked-through-pretest-info{
+        display: none;
+        position: absolute;
+        top: 3px;
+        right: 3px;
+        font-size: 16px;
+        background: transparent;
+        border-radius: 50%;
+        border: 2px solid #000000;
+        width: 28px;
+        height: 28px;
+      }
+
+      button.dashboard-level-theme-info{
+        display: block;
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        font-size: 16px;
+        background: transparent;
+        border-radius: 50%;
+        border: 2px solid #000000;
+        width: 28px;
+        height: 28px;
+      }
+    }
+
+    div.dashboard-level-stats{
+      position: relative;
+      margin-top: 2px;
+      background: linear-gradient(to right, rgba(116,128,181,1) 0%,rgba(59,77,153,1) 50%,rgba(105,119,177,1) 100%);
+
+      text-align: center;
+
+      &>span{
+        position: absolute;
+        font-size: 20px;
+        color: white;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        white-space: nowrap;
+      }
+    }
+  }
+
+  &.unlocked{
+    opacity: 1;
+
+    &>div.dashboard-level-content-wrapper{
+      cursor: pointer;
+
+      div.dashboard-level-info{
+
+        button.dashboard-level-unlocked-through-pretest-info{
+          display: block;
+        }
+      }
+    }
+  }
+
+  &.skipped, &.done{
+    opacity: .5;
+
+    &>div.dashboard-level-content-wrapper {
+      cursor: default;
+    }
+  }
+}

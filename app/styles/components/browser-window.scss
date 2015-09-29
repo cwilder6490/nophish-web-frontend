@@ -1,0 +1,135 @@
+div.browser-window{
+  overflow: auto;
+  border: 2px solid #ccc;
+  user-select: none;
+
+  div.scroll-wrapper{
+    width:  auto;
+    height: auto;
+    min-width: 700px;
+  }
+
+  div.header{
+    position: relative;
+    display: flex;
+    width: 100%;
+    font-size: 0;
+
+    .green{
+      color: #38A83A !important;
+    }
+
+    .gray{
+      color: #9FA1A5 !important;
+    }
+
+    .black{
+      color: #000000 !important;
+    }
+
+    div{
+      position: relative;
+      display: inline-block;
+      background-size: 100% auto;
+      background-repeat: no-repeat;
+
+      img {
+        height: 100%;
+        width: auto;
+        visibility: hidden;
+      }
+
+      &.url-repeat, &.https-repeat{
+        flex-grow: 100;
+        background-repeat: repeat-x;
+        background-size: auto 100%;
+      }
+
+      &.url-wrapper{
+        position: absolute;
+        z-index: 1;
+        display: flex;
+
+        div.https-wrapper{
+          display: flex;
+          flex-grow: initial !important;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          word-break: break-all;
+          overflow: hidden;
+
+          div.https-start, div.https-end{
+            background-size: 100% 100%
+          }
+
+          div.https-repeat{
+            position: relative;
+            flex-grow: initial !important;
+
+            img{
+              display: none;
+            }
+
+            div{
+              position: relative;
+              display: inline-block;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              word-break: break-all;
+              overflow: hidden;
+            }
+          }
+        }
+
+        div.url{
+          display: flex;
+          flex-grow: 20;
+          justify-content: flex-start;
+          font-size: 0;
+          overflow: hidden;
+
+          span{
+            display: block;
+            color: #9FA1A5;
+            flex-shrink: 0;
+            height: inherit;
+            line-height: inherit;
+            font-size: inherit;
+
+            cursor: pointer;
+
+            &.selected{
+              background-color: #D4E5F7;
+
+              &.good{
+                background-color: #CCFFCC;
+              }
+
+              &.bad{
+                background-color: #FFCCCC;
+              }
+            }
+          }
+
+          input{
+            display: none;
+            flex-grow: 100;
+            background: transparent;
+            border: none;
+            outline: none !important;
+          }
+        }
+      }
+    }
+  }
+
+  div.body{
+    max-width: 100%;
+    overflow-x: auto;
+
+    img{
+      width: 100%;
+      min-width: 600px;
+    }
+  }
+}

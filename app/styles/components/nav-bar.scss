@@ -1,0 +1,86 @@
+body{
+  header{
+    nav.navbar{
+      border: none; // Bootstrap-fix
+      margin-bottom: 0; // Bootstrap-fix
+      border-bottom: 1px solid #cccccc;
+    }
+
+    div#TU-color-bar{
+      width: 100%;
+      height: 18px;
+
+      border-top: 14px solid #B90F22;
+      border-bottom: 1px solid black;
+    }
+
+    div#banner{
+      position: relative;
+      width: 100%;
+      height: auto;
+
+      &>img{
+        width: 100%;
+        height: auto;
+      }
+
+      &>div#logo-NOPHISH, &>div#logo-TUD{
+        position: absolute;
+        top: 25%;
+        height: 50%;
+        width: auto;
+
+        &#logo-NOPHISH{
+          left: 0;
+          top: 0;
+          height: 100%;
+
+          &>a{
+            display: block;
+            height: 100%;
+
+            &>img{
+              height: 100%;
+              width: auto;
+            }
+          }
+        }
+
+        &#logo-TUD{
+          right: 0;
+
+          &>a{
+
+            &>img{
+              height: 100%;
+              width: auto;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: $screen-sm-min) {
+  body{
+    header{
+      padding-top: 10px;
+      padding-bottom: 20px;
+
+      nav.navbar{
+        border: none; // Bootstrap-fix
+        margin-bottom: 0; // Bootstrap-fix
+        background-color: #ffffff;
+
+        &>div.container-fluid{
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+    }
+  }
+
+}

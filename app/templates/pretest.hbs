@@ -1,0 +1,59 @@
+<div id="pretest">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-header">
+                <h1>{{t 'preTest.header.title'}}</h1>
+                {{#if showPreTestQuestions}}
+                  <button class="btn btn-default" {{action 'skipPreTest'}}>{{t 'preTest.body.start.skip.confirm'}}</button>
+                {{/if}}
+            </div>
+            {{#if showStartDialog}}
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                        <h3>{{t 'preTest.body.start.continue'}}</h3>
+                        <p>{{t 'preTest.body.start.continue.text'}}</p>
+                        <button class='btn btn-default btn-block' {{action 'continuePreTest'}}>{{t 'preTest.body.start.continue.confirm'}} <span class="glyphicon glyphicon-menu-right"></span></button>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <h3>{{t 'preTest.body.start.skip'}}</h3>
+                        <p>{{t 'preTest.body.start.skip.text'}}</p>
+                        <button class='btn btn-default btn-block' {{action 'skipPreTest'}}>{{t 'preTest.body.start.skip.confirm'}} <span class="glyphicon glyphicon-menu-right"></span></button>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if showPreTestQuestions}}
+                <div class="row">
+                    <div class="col-xs-12">
+                      {{test-component test=model shuffledQuestions=shuffledQuestions answers=answers user=controllers.application.user didAllQuestions='submitPreTest'}}
+                    </div>
+                </div>
+            {{/if}}
+
+          {{#if showEndDialog}}
+              <div class="row">
+                  <div class="col-xs-12 col-md-6">
+                      <h3>Ergebnis</h3>
+                      <p>{{controllers.application.user.preTestCorrectAnswers}} von {{controllers.application.user.preTestTotalAnswers}} Fragen wurden richtig beantwortet.</p>
+                      {{#if unlockedLevels}}
+                        <p>Aufgrund des Ergebnisses werden folgende Level freigeschaltet:</p>
+                        <ul>
+                          {{#each unlockedLevel in unlockedLevels}}
+                            <li>{{unlockedLevel.name}} ({{unlockedLevel.theme}})</li>
+                          {{/each}}
+                        </ul>
+                        <p>
+                          Die freigeschalteten Level sind in der Übersicht mit einem 'V' in der oberen rechten Ecke gekennzeichnet. Natürlich können diese Level trotzdem noch gespielt werden.
+                        </p>
+                      {{/if}}
+                  </div>
+              </div>
+              <div class="row spacer">
+                <div class="col-xs-12 col-md-6">
+                    <button {{action 'toDashboard'}} class='btn btn-default btn-block'>Weiter <span class="glyphicon glyphicon-menu-right"></span></button>
+                </div>
+              </div>
+          {{/if}}
+        </div>
+    </div>
+</div>

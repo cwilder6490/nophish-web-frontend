@@ -1,0 +1,20 @@
+div.level-exercise-stats{
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #eeeeee;
+  font-weight: bold;
+
+  span.correct, span.score{
+    margin-right: 20px;
+  }
+
+  span.remainingLives{
+    font-size: 14px;
+    color: red;
+
+    .fa-heart{
+      float: right;
+      margin-left: 5px;
+    }
+  }
+}

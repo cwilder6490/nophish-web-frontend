@@ -1,0 +1,51 @@
+<div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">{{t 'register.things.modal.example.title'}}</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row password">
+                <div class="col-xs-12">
+                  {{t 'register.things.modal.example.body.password.1'}}
+                </div>
+                <div class="col-xs-12">
+                  {{t 'register.things.modal.example.body.password.2'}}
+                </div>
+                <div class="col-xs-12">
+                    <img src="/images/things-example-password.jpg">
+                </div>
+                <div class="col-xs-12">
+                  <button class="btn btn-default btn.block show-grid">{{t 'register.things.modal.example.body.password.grid'}}</button>
+                </div>
+            </div>
+            <div class="row grid">
+                <div class="col-xs-12">
+                  {{t 'register.things.modal.example.body.grid.1'}}
+                </div>
+                <div class="col-xs-12">
+                  {{t 'register.things.modal.example.body.grid.2'}}
+                </div>
+                <div class="col-xs-12">
+                    <img src="/images/things-example-grid.jpg">
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">{{t 'default.modal.buttons.close'}}</button>
+        </div>
+    </div>
+</div>
+<script>
+    Ember.$('.register-things-example-modal')
+            .on('shown.bs.modal hidden.bs.modal', function () {
+                Ember.$(this).find('.password').show();
+                Ember.$(this).find('.grid').hide();
+            });
+
+    Ember.$('.register-things-example-modal .show-grid')
+            .on('click', function () {
+                Ember.$('.register-things-example-modal .password').hide();
+                Ember.$('.register-things-example-modal .grid').show();
+            });
+</script>

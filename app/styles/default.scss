@@ -1,0 +1,98 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  background: #ffffff;
+
+  header, main, footer{
+    width: $container-width-xs;
+    background-color: #ffffff;
+  }
+
+  main{
+    padding: 0 15px;
+  }
+
+  .spacer {
+    margin-top: 15px;
+  }
+
+  div.col-no-height{
+    min-height: 0 !important;
+  }
+
+  .clearfix {
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  }
+
+  .info-tooltip{
+    margin-left: 10px;
+    border-radius: 50%;
+    border: none;
+    width: 21px;
+    color: white;
+    background-color: cornflowerblue;
+  }
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: $screen-sm-min) {
+  body{
+    background: $primary-bg-color;
+
+    header, main, footer{
+      width: $container-width-sm;
+      margin: 0 auto;
+      padding: 0 20px;
+
+      //box-shadow: 0 0 1px 0 white, 0 0 1px 0 rgba(0,0,0,0.75), 0 0 1px 0 white, 0 0 1px 0 rgba(0,0,0,0.75);
+      box-shadow: 0 5px 0 0 white, 0 -5px 0 0 white, 1px 0 4px -2px rgba(0,0,0,0.75), -1px 0 4px -2px rgba(0,0,0,0.75);
+    }
+
+    main{
+      box-shadow: 0 0 0 0 white, 0 -5px 0 0 white, 1px 0 4px -2px rgba(0,0,0,0.75), -1px 0 4px -2px rgba(0,0,0,0.75);
+      padding-bottom: 20px;
+    }
+
+    footer{
+      background: $primary-bg-color;
+      box-shadow: none;
+      margin-top: 10px;
+
+      ul{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        float: right;
+
+        li{
+          display: inline-block;
+          margin-left: 30px;
+        }
+      }
+    }
+  }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: $screen-md-min) {
+  body{
+    header, main, footer{
+      width: $container-width-md;
+    }
+  }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: $screen-lg-min) {
+  body{
+    header, main, footer{
+      width: $container-width-lg;
+    }
+  }
+}

@@ -1,0 +1,50 @@
+<div id="pretest">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-header">
+                <h1>{{t 'retentionTest.header.title'}}</h1>
+            </div>
+            {{#if showStartDialog}}
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p>{{t 'retentionTest.body.start.continue.text'}}</p>
+                        <button class='btn btn-default btn-block' {{action 'continuePreTest'}}>{{t 'retentionTest.body.start.continue.confirm'}} <span class="glyphicon glyphicon-menu-right"></span></button>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if showPreTestQuestions}}
+                <div class="row">
+                    <div class="col-xs-12">
+                      {{test-component test=model shuffledQuestions=shuffledQuestions answers=answers user=controllers.application.user didAllQuestions='submitPreTest'}}
+                    </div>
+                </div>
+            {{/if}}
+
+          {{#if showEndDialog}}
+              <div class="row">
+                  <div class="col-xs-12 col-md-6">
+                      <h3>Ergebnis</h3>
+                      <p>{{controllers.application.user.retentionTestCorrectAnswers}} von {{controllers.application.user.retentionTestTotalAnswers}} Fragen wurden richtig beantwortet.</p>
+                    {{#if failedLevels.length}}
+                        <p>{{t 'postTest.body.end.repeatLevels'}}</p>
+                        <ul>
+                          {{#each failedLevel in failedLevels}}
+                              <li>{{failedLevel.name}} ({{failedLevel.theme}})</li>
+                          {{/each}}
+                        </ul>
+                    {{/if}}
+                      <br/>
+                      <p>{{t 'retentionTest.body.end.repeat'}}</p>
+                      <button {{action 'setRetentionTestReminder'}} class="btn btn-success">{{t 'retentionTest.body.end.repeat.button'}}</button>
+                  </div>
+              </div>
+              <div class="row spacer">
+                  <div class="col-xs-12 col-md-6">
+                      <button {{action 'toDashboard'}} class='btn btn-default btn-block'>Weiter <span class="glyphicon glyphicon-menu-right"></span></button>
+                  </div>
+              </div>
+          {{/if}}
+        </div>
+    </div>
+</div>

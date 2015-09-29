@@ -1,0 +1,22 @@
+body{
+  main{
+    div#register{
+      a.btn{
+        white-space: normal;
+      }
+    }
+
+    div#register-things-example-modal, div#register-example-modal{
+
+      div.modal-body{
+        img{
+          max-width: 100%;
+        }
+
+        div.grid{
+          display: none;
+        }
+      }
+    }
+  }
+}

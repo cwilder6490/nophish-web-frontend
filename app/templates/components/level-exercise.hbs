@@ -1,0 +1,6 @@
+{{level-exercise-stats level=level}}
+
+{{#each level.urls as |currentUrl index|}}
+  {{level-exercise-item url=currentUrl user=user onlySelectDomain=level.onlySelectDomain done='done' next='next' index=index currentIndex=currentIndex userDecidedRightStreak=userDecidedRightStreak setUserDecidedRightStreak='setUserDecidedRightStreak' isTrustLevel=level.isTrustLevel}}
+{{/each}}
+

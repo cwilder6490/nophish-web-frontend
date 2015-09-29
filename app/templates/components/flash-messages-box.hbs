@@ -1,0 +1,12 @@
+{{#each flashMessages.queue as |flash|}}
+  {{#flash-message flash=flash as |component flash|}}
+    {{#if flash.template}}
+      {{render flash.template flash.context}}
+    {{else}}
+      <p>{{flash.message}}</p>
+      {{#if flash.link}}
+        {{#link-to flash.link}}{{/link-to}}
+      {{/if}}
+    {{/if}}
+  {{/flash-message}}
+{{/each}}

@@ -1,0 +1,59 @@
+<div class="scroll-wrapper">
+    <div class="header">
+        <div class="url-wrapper" style="{{headerUrlPosition}}">
+            <div class="https-wrapper" style="{{httpsStyle}}">
+                <div class="https-start" style="background-image: url('{{headerHttpsStartImage}}')">
+                    <img {{bind-attr src=headerHttpsStartImage}}/>
+                </div>
+                <div class="https-repeat" style="background-image: url('{{headerHttpsRepeatImage}}')">
+                    <img {{bind-attr src=headerHttpsRepeatImage}}/>
+                  {{#if url.hasExtendedValidationCertificate}}
+                      <div style="{{urlStyle}}">{{url.extendedValidationCertificateName}}</div>
+                  {{/if}}
+                </div>
+                <div class="https-end" style="background-image: url('{{headerHttpsEndImage}}')">
+                    <img {{bind-attr src=headerHttpsEndImage}}/>
+                </div>
+            </div>
+            <div class="url" style="{{urlStyle}}">
+                <span id="url-protocol" {{action 'select' 'protocol'}} class="protocol" style="{{styles.url.protocol}}">{{url.protocol}}</span>
+                <span style="{{styles.url.protocolSlashes}}">://</span>
+              {{#each url.subDomains as |subDomain index|}}
+                  <span id="url-subDomains-{{index}}" {{action 'select' 'subDomains' index}} class="sub-domain" style="{{styles.url.subDomain}}">{{subDomain}}.</span>
+              {{/each}}
+                <!--<span id="url-domain" {{!action 'select' 'domain'}} class="domain" style="{{!styles.url.domain}}">{{!url.domain}}</span>-->
+                <!--{{!#if url.topLevelDomain}}-->
+                <!--<span id="url-topLevelDomain" {{!action 'select' 'topLevelDomain'}} class="tld" style="{{!styles.url.tld}}">.{{!url.topLevelDomain}}</span>-->
+                <!--/-->
+                <!--{{!/if}}-->
+                <span id="url-domain" {{action 'select' 'domain'}} class="domain" style="{{styles.url.domain}}">{{url.whoArea}}</span>
+                <span>/</span>
+              {{#each url.path as |path index|}}
+                  <span id="url-path-{{index}}" {{action 'select' 'path' index}} class="path" style="{{styles.url.path}}">{{path}}</span>
+              {{/each}}
+            </div>
+        </div>
+        <div class="url-start" style="background-image: url('{{headerUrlStartImage}}')">
+            <img {{bind-attr src=headerUrlStartImage}}/>
+        </div>
+        <div class="url-repeat" style="background-image: url('{{headerUrlRepeatImage}}')">
+            <img {{bind-attr src=headerUrlRepeatImage}}/>
+        </div>
+        <div class="url-end" style="background-image: url('{{headerUrlEndImage}}')">
+            <img {{bind-attr src=headerUrlEndImage}}/>
+        </div>
+        <!--{{!#if hasSearch}}-->
+        <!--<div class="search" style="background-image: url('{{!headerSearchImage}}')">-->
+        <!--<img {{!bind-attr src=headerSearchImage}}/>-->
+        <!--</div>-->
+        <!--{{!/if}}-->
+        <div class="end" style="background-image: url('{{headerEndImage}}')">
+            <img {{bind-attr src=headerEndImage}}/>
+        </div>
+    </div>
+  {{#if bodyImage}}
+      <div class="body">
+          <img {{bind-attr src=bodyImage}}/>
+      </div>
+  {{/if}}
+</div>

@@ -1,0 +1,169 @@
+<div id="settings">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-header">
+                <h1>{{t 'settings.header.title'}}</h1>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="form-group">
+                        <label for="input-registration-brower">{{t 'settings.body.password.label'}}</label>
+                        <button {{action 'openPasswordModal'}} type="button" class="btn btn-default btn-block">
+                            <!--data-toggle="modal" data-target="#settings-change-password"-->
+                          {{t 'settings.body.password.button'}}
+                        </button>
+                        <div class="modal fade" id="settings-change-password" tabindex="-1" role="dialog" aria-labelledby="settings-change-password">
+                            <div class="modal-dialog modal-lg" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title">{{t 'settings.body.password.modal.title'}}</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        {{#if choosePasswordType}}
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                  {{t 'settings.body.password.modal.type'}}
+                                                </div>
+                                            </div>
+                                            <div class="row spacer">
+                                                <div class="col-xs-12 col-sm-12 col-md-6">
+                                                    <!--<button {{!action 'useThingsPassword'}} class="btn btn-default btn-block">-->
+                                                      <!--{{!t 'settings.body.password.modal.type.things'}}-->
+                                                    <!--</button>-->
+                                                    <button style="opacity: .5" class="btn btn-default btn-block">Zur Zeit nicht verfügbar</button>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-md-6">
+                                                    <button {{action 'useStandardPassword'}} class="btn btn-default btn-block">
+                                                      {{t 'settings.body.password.modal.type.standard'}}
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        {{/if}}
+
+                                        {{#if useThingsPassword}}
+                                            <div class="things-register-anchor"></div>
+                                            <div class="row spacer">
+                                                <div class="col-xs-12 col-sm-6 col-md-4">
+                                                  {{t 'register.things.body.info.1'}}<br>
+                                                </div>
+                                            </div>
+                                            <div class="row spacer">
+                                                <div class="col-xs-12 col-sm-6 col-md-4">
+                                                  {{t 'register.things.body.info.2'}}<br>
+                                                </div>
+                                            </div>
+                                            <div class="row spacer">
+                                                <div class="col-xs-12 col-sm-6 col-md-4">
+                                                  {{t 'register.things.body.info.3'}}<br>
+                                                </div>
+                                            </div>
+                                            <div class="row spacer">
+                                                <div class="col-xs-12 col-sm-6 col-md-4">
+                                                  {{t 'register.things.body.info.4'}}<br>
+                                                </div>
+                                            </div>
+                                            <div class="row spacer">
+                                                <div class="col-xs-12">
+                                                  {{things-register passwordImages=passwordImages filePath=filePath userHasSeenAllImages=userHasSeenAllImages everyImageWasSeen='everyImageWasSeen'}}
+                                                </div>
+                                            </div>
+                                            <!--<div class="row spacer">-->
+                                                <!--<div class="col-xs-12 col-sm-6 col-md-4">-->
+                                                    <!--<button type="button" class="btn btn-default btn-block" data-toggle="modal" data-target="#register-things-example-modal">-->
+                                                      <!--{{!t 'register.things.body.example'}}-->
+                                                    <!--</button>-->
+                                                    <!--<div class="modal fade register-things-example-modal" id="register-things-example-modal" tabindex="-1" role="dialog" aria-labelledby="register-things-example-modal">-->
+                                                      <!--{{!partial 'register/example-modal'}}-->
+                                                    <!--</div>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        {{/if}}
+
+                                        {{#if useStandardPassword}}
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="input-registration-password">{{t 'register.standard.body.password'}}</label>
+                                                      {{input type="password" value=password class="form-control" id="input-settings-password" placeholder=passwordPlaceholder required="true" disabled=isProcessingInput}}
+                                                        <p class="help-block">{{t 'register.standard.body.password.pattern'}}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row spacer">
+                                                <div class="col-xs-12 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="input-registration-password-repeat">{{t 'register.standard.body.password.repeat'}}</label>
+                                                      {{input type="password" value=passwordRepeat class="form-control" id="input-settings-password-repeat" placeholder=passwordRepeatPlaceholder required="true" disabled=isProcessingInput}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {{/if}}
+                                    </div>
+                                  {{#if canPersistPassword}}
+                                    <div class="modal-footer">
+                                        <button {{action 'savePasswordChange'}} type="button" class="btn btn-default" {{bind-attr disabled=isProcessingInput}}>
+                                          {{!#if useStandardPassword}}
+                                            {{t 'default.modal.buttons.save'}}
+                                          {{!else}}
+                                            <!--Speichern und mit Passwort erneut anmelden-->
+                                          {{!/if}}
+                                        </button>
+                                    </div>
+                                  {{/if}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{#unless controllers.application.user.emailConfirmed}}
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <label for="input-registration-brower">E-Mail</label>
+                            <button {{action 'requestConfirmEmail'}} type="button" class="btn btn-default btn-block">Neue Bestätigungs-E-Mail anfordern</button>
+                        </div>
+                    </div>
+                </div>
+            {{/unless}}
+
+            {{partial 'register/options'}}
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                  <button {{action 'saveOptions'}} class="btn btn-default btn-block">{{t 'settings.body.save'}}</button>
+                </div>
+            </div>
+
+            <hr/>
+
+            <div class="row spacer">
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <button {{action 'openDeleteAccountModal'}} class="btn btn-danger btn-block">Account löschen</button>
+                </div>
+            </div>
+            <div class="modal fade" id="settings-delete-account-modal" tabindex="-1" role="dialog" aria-labelledby="settings-delete-account-modal">
+                <div class="modal-dialog modal-md" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Account löschen</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    Der Account kann danach nicht wieder hergestellt werden. Wirklich fortfahren?
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Abbrechen</button>
+                            <button {{action 'deleteAccount'}} type="button" class="btn btn-danger">Ja, fortfahren und Account löschen</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

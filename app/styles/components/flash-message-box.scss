@@ -1,0 +1,15 @@
+div.flash-message-box{
+  div.alert{
+    margin-bottom: 5px;
+    position: relative;
+
+    a{
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+div.things-image{
+  display: inline-block;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+
+  cursor: pointer;
+
+  margin: 0 $things-grid-inner-margin $things-grid-inner-margin 0;
+
+  img{
+    visibility: hidden;
+    width: 100%;
+    height: auto;
+  }
+}
+
+@for $i from 1 through 5{
+  div.row-#{$i}{
+    div.things-image{
+      width: calc(#{100% / $i} - #{$things-grid-inner-margin});
+
+      @media (max-width: #{$screen-sm-min - 1px}){
+        width: calc(#{100% / $i * 2} - #{$things-grid-inner-margin});
+      }
+    }
+  }
+}

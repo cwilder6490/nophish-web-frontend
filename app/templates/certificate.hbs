@@ -1,0 +1,29 @@
+<div id="certificate">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-header">
+                <h1>Zertifikat</h1>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>{{t 'certificate.body.text.1'}}</p>
+                    <p>{{t 'certificate.body.text.2'}}</p>
+                    <p>{{t 'certificate.body.text.3'}}</p>
+                </div>
+            </div>
+            <div class="row spacer">
+                <div class="col-xs-12">
+                    <form {{action 'requestCertificate' on='submit'}}>
+                        <div class="form-group">
+                            <label for="name">{{t 'certificate.body.name'}}</label>
+                          {{input id='name' class='form-control' value=name disabled=isProcessingInput}}
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-default" type="submit" {{bind-attr disabled=isProcessingInput}}>Zertifikat anfordern</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<div id="dashboard">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-header">
+                <h1>{{t 'dashboard.header.title'}}</h1>
+            </div>
+        </div>
+    </div>
+
+    <div id="dev-wrapper" class="hide">
+        <button {{action 'unlockAll'}}>Unlock all levels</button>
+        <button {{action 'unlockRetention'}}>Unlock Retentiontest</button>
+    </div>
+
+  {{#if showRetentionTestReminderOption}}
+      <div class="row">
+        <div class="col-xs-12">
+            <p><b>{{t 'retentionTest.body.end.repeat'}}</b></p>
+            <button {{action 'setRetentionTestReminder'}} class="btn btn-block btn-success">{{t 'retentionTest.body.end.repeat.button'}}</button>
+        </div>
+      </div>
+      <hr/>
+      <br/>
+  {{/if}}
+
+    <div class="row">
+        {{#each model.levels as |level|}}
+          {{dashboard-level level=level transitionToLevel='transitionToLevel'}}
+        {{/each}}
+    </div>
+
+    <hr/>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>Status</h1>
+        </div>
+    </div>
+    <div class="row">
+      {{dashboard-level level=preTestStatus additionalInformation=controllers.application.user.preTestDoneAtDate}}
+      {{dashboard-level level=levelsStatus transitionToLevel='transitionToNextLevel'}}
+      {{dashboard-level level=postTestStatus transitionToLevel='transitionToPostTest' additionalInformation=controllers.application.user.postTestDoneAtDate}}
+      {{dashboard-level level=certificateStatus transitionToLevel='transitionToCertificate'}}
+      {{dashboard-level level=retentionTestStatus transitionToLevel='transitionToRetentionTest' additionalInformation=controllers.application.user.retentionTestDoneAtDate}}
+    </div>
+</div>

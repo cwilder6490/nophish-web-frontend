@@ -1,0 +1,88 @@
+<div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="form-group">
+            <label for="input-registration-brower">
+              {{t 'register.body.browser'}}
+                <button rel="tooltip" type="button" class="info-tooltip" data-toggle="tooltip" data-placement="bottom" title="{{t 'register.body.browser.info'}}">i</button>
+            </label>
+          {{view "select"
+          content=optionsController.browserOptions
+          optionValuePath="content.id"
+          optionLabelPath="content.label"
+          valueBinding=optionsController.browser
+          class="form-control"
+          disabled=isProcessingInput}}
+          <!--{{!#unless optionsController.hideHelpBlocks}}-->
+              <!--<p class="help-block">{{!t 'register.body.browser.info'}}</p>-->
+          <!--{{!/unless}}-->
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="form-group">
+            <label for="input-registration-mailclient">
+              {{t 'register.body.email-client'}}
+                <button rel="tooltip" type="button" class="info-tooltip" data-toggle="tooltip" data-placement="bottom" title="{{t 'register.body.email-client.info'}}">i</button>
+            </label>
+          {{view "select"
+          content=optionsController.mailclientOptions
+          optionValuePath="content.id"
+          optionLabelPath="content.label"
+          valueBinding=optionsController.mailclient
+          class="form-control"
+          disabled=isProcessingInput}}
+          <!--{{!#unless optionsController.hideHelpBlocks}}-->
+              <!--<p class="help-block">{{!t 'register.body.email-client.info'}}</p>-->
+          <!--{{!/unless}}-->
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="form-group">
+            <label for="input-registration-birth">
+              {{t 'register.body.birth'}}
+                <button rel="tooltip" type="button" class="info-tooltip" data-toggle="tooltip" data-placement="bottom" title="{{t 'register.body.birth.info'}}">i</button>
+            </label>
+            {{view "select"
+            content=optionsController.birthOptions
+            optionValuePath="content.id"
+            optionLabelPath="content.label"
+            valueBinding=optionsController.birth
+            class="form-control"
+            disabled=isProcessingInput}}
+            <!--{{!#unless optionsController.hideHelpBlocks}}-->
+              <!--<p class="help-block">{{!t 'register.body.birth.info'}}</p>-->
+            <!--{{!/unless}}-->
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="form-group">
+            <label for="input-registration-sex">
+              {{t 'register.body.sex'}}
+                <button rel="tooltip" type="button" class="info-tooltip" data-toggle="tooltip" data-placement="bottom" title="{{t 'register.body.sex.info'}}">i</button>
+            </label>
+            {{view "select"
+                content=optionsController.sexOptions
+                optionValuePath="content.id"
+                optionLabelPath="content.label"
+                valueBinding=optionsController.sex
+                class="form-control"
+                disabled=isProcessingInput}}
+                <!--{{!#unless optionsController.hideHelpBlocks}}-->
+                    <!--<p class="help-block">{{!t 'register.body.sex.info'}}</p>-->
+                <!--{{!/unless}}-->
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="form-group">
+            <label for="input-registration-informal">{{t 'register.body.informal'}}</label>
+          {{input type="checkbox" checkedBinding=optionsController.informal id="input-registration-informal" disabled=isProcessingInput}}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,130 @@
+<div id="level">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-header">
+                {{#if showResult}}
+                  {{#if succeeded}}
+                      <div class="row">
+                          <div class="col-xs-12 col-sm-6">
+                            <a {{action 'saveAndReturnToDashboard'}} class='btn btn-block btn-default'>
+                                <i class="glyphicon glyphicon-chevron-left"></i> Fortschritt speichern und zurück zur Übersicht
+                            </a>
+                          </div>
+                      </div>
+                  {{else}}
+                      <div class="row">
+                          <div class="col-xs-12 col-sm-4">
+                            {{#link-to 'dashboard' class='btn btn-block btn-default'}}
+                                <i class="glyphicon glyphicon-chevron-left"></i> Zurück zur Übersicht
+                            {{/link-to}}
+                          </div>
+                      </div>
+                  {{/if}}
+                {{else}}
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-4">
+                          {{#link-to 'dashboard' class='btn btn-block btn-default'}}
+                              <i class="glyphicon glyphicon-chevron-left"></i> Zurück zur Übersicht
+                          {{/link-to}}
+                        </div>
+                    </div>
+                {{/if}}
+                <div class="row spacer">
+                    <div class="col-xs-12">
+                        <h1>{{model.name}} <small>{{model.theme}}</small></h1>
+                    </div>
+                </div>
+            </div>
+            {{#if showInfo}}
+              {{#info-pagination model=model startExercise='startExercise' finishLevel='nextLevel' infoRendered=_infoRendered}}
+                {{#each info in model.info}}
+                  {{#info-site ready='infoRendered'}}
+                      <div class="row">
+                          <div class="col-xs-12">
+                            {{{info}}}
+                          </div>
+                      </div>
+                  {{/info-site}}
+                {{/each}}
+              {{/info-pagination}}
+            {{/if}}
+
+            {{#if showExercise}}
+              {{level-exercise level=model user=controllers.application.user succeeded='succeeded' failed='failed'}}
+            {{/if}}
+
+            {{#if showResult}}
+              {{#if failed}}
+                  <div class="row spacer">
+                      <div class="col-xs-12">
+                          <h2>Level nicht bestanden!</h2>
+                      </div>
+                  </div>
+                  <div class="row spacer">
+                      <div class="col-xs-12">
+                          {{t 'level.body.result.failed'}}
+                      </div>
+                  </div>
+                  <div class="row spacer">
+                      <div class="col-xs-12 col-sm-4 col-sm-offset-8">
+                          <button class="btn btn-block btn-default" {{action 'repeatLevel'}}>
+                              Level wiederholen
+                          </button>
+                      </div>
+                  </div>
+              {{else}}
+                {{#if succeeded}}
+                    <div class="row spacer">
+                        <div class="col-xs-12">
+                            <h2>Geschafft!</h2>
+                        </div>
+                    </div>
+                    <div class="row spacer">
+                        <div class="col-xs-12">
+                          {{#each trophy in trophies}}
+                              <i class="fa fa-heart result-heart"></i>
+                          {{/each}}
+                          {{#each trophyLost in trophiesLost}}
+                              <i class="fa fa-heart result-heart lost"></i>
+                          {{/each}}
+                        </div>
+                    </div>
+                    <div class="row spacer">
+                        <div class="col-xs-12">
+                          {{t 'level.body.result.succeeded' correct=model.correctAnswers wrong=wrongAnswers}}
+                        </div>
+                    </div>
+                    <div class="row spacer">
+                        <div class="col-xs-12 col-sm-4 col-sm-offset-8">
+                          <button class="btn btn-block btn-default" {{action 'nextLevel'}}>
+                              Zum nächsten Level
+                          </button>
+                        </div>
+                    </div>
+                {{/if}}
+              {{/if}}
+            {{/if}}
+
+            <div class="modal fade" id="confirm-exit" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">Level abbrechen?</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>{{t 'level.body.exit'}}</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Weiterspielen</button>
+                            <button type="button" class="btn btn-danger" {{action 'confirmExit'}}>Level verlassen</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{#if showOverlay}}
+              <div class="overlay"></div>
+            {{/if}}
+        </div>
+    </div>
+</div>

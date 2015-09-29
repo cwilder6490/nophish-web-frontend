@@ -1,0 +1,77 @@
+<div id="register-things">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-header">
+                <h1>{{t 'register.things.header.title'}} <small>{{t 'register.things.header.title.small'}}</small></h1>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="form-group">
+                        <label for="input-registration-email">
+                          {{t 'register.body.email'}}
+                            <button rel="tooltip" type="button" class="info-tooltip" data-toggle="tooltip" data-placement="bottom" title="{{t 'register.body.email.info'}}">i</button>
+                        </label>
+                      {{input type="email" value=email class="form-control" id="input-registration-email" placeholder=emailPlaceholder required="true" disabled=isProcessingInput}}
+                        <!--<p class="help-block">{{!t 'register.body.email.info'}}</p>-->
+                    </div>
+                </div>
+            </div>
+            {{partial 'register/options'}}
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="form-group">
+                      <button class="btn btn-default btn-block" {{action 'generateThingsPassword'}} {{bind-attr disabled=isProcessingInput}}>{{t 'register.things.body.generate'}}</button>
+                    </div>
+                </div>
+            </div>
+
+            {{#if showPasswordImages}}
+            <div class="things-register-anchor"></div>
+            <div class="row spacer">
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                  {{t 'register.things.body.info.1'}}<br>
+                </div>
+            </div>
+            <div class="row spacer">
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                  {{t 'register.things.body.info.2'}}<br>
+                </div>
+            </div>
+            <div class="row spacer">
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                  {{t 'register.things.body.info.3'}}<br>
+                </div>
+            </div>
+            <div class="row spacer">
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                  {{t 'register.things.body.info.4'}}<br>
+                </div>
+            </div>
+            <div class="row spacer">
+                <div class="col-xs-12">
+                    {{things-register passwordImages=passwordImages filePath=filePath userHasSeenAllImages=userHasSeenAllImages everyImageWasSeen='everyImageWasSeen'}}
+                </div>
+            </div>
+            <div class="row spacer">
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <button type="button" class="btn btn-default btn-block" data-toggle="modal" data-target="#register-things-example-modal">
+                      {{t 'register.things.body.example'}}
+                    </button>
+                    <div class="modal fade register-things-example-modal" id="register-things-example-modal" tabindex="-1" role="dialog" aria-labelledby="register-things-example-modal">
+                      {{partial 'register/example-modal'}}
+                    </div>
+                </div>
+            </div>
+            {{/if}}
+            <div class="row spacer">
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                  {{#if showPasswordImages}}
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-default btn-block" {{action 'register'}} {{bind-attr disabled=isSubmitButtonClickable}}>{{t 'register.body.register'}}</button>
+                    </div>
+                  {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

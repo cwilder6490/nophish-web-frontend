@@ -1,0 +1,21 @@
+{{#each passwordImage in passwordImagesCopy}}
+  <div class="{{if passwordImage.isActive 'show' 'hide'}}">
+    {{things-image collection=passwordImage.collection image=passwordImage.image filePath=filePath}}
+  </div>
+{{/each}}
+<div>
+    {{t 'components.things-register.counter' current=updateCurrentImageNumber total=passwordImagesCopy.length}}
+    <!--({{!updateCurrentImageNumber}}/{{!passwordImagesCopy.length}})-->
+</div>
+<ul class="pagination">
+    <li>
+        <a {{action 'previous'}} aria-label="Previous">
+            <span aria-hidden="true">&laquo; {{t 'components.things-register.buttons.previous'}}</span>
+        </a>
+    </li>
+    <li>
+        <a {{action 'next'}} aria-label="Next">
+            <span aria-hidden="true">{{t 'components.things-register.buttons.next'}} &raquo;</span>
+        </a>
+    </li>
+</ul>

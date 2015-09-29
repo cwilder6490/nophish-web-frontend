@@ -1,0 +1,52 @@
+{{!#link-to 'level' level.id}}
+<div class="dashboard-level-content-wrapper" {{action 'transitionToLevel' level.id}}>
+    {{#unless level.unlocked}}
+      <div class="dashboard-level-locked-icon">
+          <i class="fa fa-lock fa-6"></i>
+      </div>
+    {{/unless}}
+    {{#if level.skipped}}
+      <div class="dashboard-level-skipped-icon">
+          <i class="fa fa-forward fa-4"></i>
+      </div>
+    {{else}}
+      {{#if level.done}}
+        {{#unless level.preventDoneLook}}
+            <div class="dashboard-level-check-icon">
+                <i class="fa fa-check fa-4"></i>
+            </div>
+        {{/unless}}
+      {{/if}}
+    {{/if}}
+    <div class="dashboard-level-info">
+        <span class="dashboard-level-name">{{level.name}}</span>
+        {{#if additionalInformation}}
+          <span class="dashboard-level-additional-information">{{additionalInformation}}</span>
+        {{/if}}
+        {{#if level.unlockedThroughPreTest}}
+            <button {{action 'stopPropagation' bubbles=false}} rel="tooltip" type="button" class="dashboard-level-unlocked-through-pretest-info" data-toggle="tooltip" data-placement="left" title="Durch Vortest freigeschaltet">V</button>
+        {{/if}}
+        {{#if level.theme}}
+            <button {{action 'stopPropagation' bubbles=false}} rel="tooltip" type="button" class="dashboard-level-theme-info" data-toggle="tooltip" data-placement="right" title="{{level.theme}}">i</button>
+        {{/if}}
+    </div>
+    <div class="dashboard-level-stats">
+        {{#if level.showExercise}}
+          <span style="{{!if level.showExercise '' 'visibility: hidden;'}}">
+            {{level.correctAnswers}} / {{level.totalItems}}
+          </span>
+        {{else}}
+          {{#if level.skipped}}
+              <span>Übersprungen</span>
+          {{else}}
+            {{#if level.done}}
+              {{#if level.doneText}}
+                <span>{{level.doneText}}</span>
+              {{else}}
+                <span>Abgeschlossen</span>
+              {{/if}}
+            {{/if}}
+          {{/if}}
+        {{/if}}
+    </div>
+</div>

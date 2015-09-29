@@ -1,0 +1,21 @@
+div.test-question{
+  div.image-wrapper{
+    //margin-bottom: 10px;
+
+    img{
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  textarea{
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  div.source{
+    text-align: right;
+    font-style: italic;
+    margin-bottom: 5px;
+  }
+}

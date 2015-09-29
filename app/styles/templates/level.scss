@@ -1,0 +1,29 @@
+body{
+  main{
+    div#level{
+      i.fa-trophy{
+        color: #FFD700;
+        font-size: 40px;
+      }
+      i.result-heart{
+        color: red;
+        font-size: 40px;
+
+        &.lost{
+          opacity: .3;
+        }
+      }
+
+      div.overlay{
+        z-index: 9999;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #000000;
+        opacity: .7;
+      }
+    }
+  }
+}

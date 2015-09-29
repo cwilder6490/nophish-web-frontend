@@ -1,0 +1,74 @@
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <label>
+              {{#if question.isWeb}}
+                {{t 'components.test-question.phishing.web' provider=question.provider}}
+              {{else}}
+                {{t 'components.test-question.phishing.email'}}
+              {{/if}}
+            </label>
+
+          {{#if question.isWeb}}
+            {{browser-window type=user.getBrowserType metaData=question.meta bodyImage=question.absoluteImagePath}}
+          {{else}}
+              <div class="image-wrapper">
+                  <img src="{{question.absoluteImagePath}}" alt=""/>
+              </div>
+          {{/if}}
+          {{#if question.copyright}}
+              <div class="source">Quelle Original Screenshot: {{question.copyright}}</div>
+          {{/if}}
+
+            <div class="btn-wrapper is-phishing-wrapper spacer">
+                <button class="btn btn-default {{if answerIsOriginal 'btn-success'}}" {{action 'setIsPhishing' false}} >{{t 'components.test-question.phishing.isOriginal'}}</button>
+                <button class="btn btn-default {{if answerIsPhishing 'btn-success'}}" {{action 'setIsPhishing' true}} >{{t 'components.test-question.phishing.isPhishing'}}</button>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>
+              {{t 'components.test-question.howSure'}}
+            </label>
+            <div class="btn-wrapper how-sure-wrapper">
+                <button class="btn btn-default {{if answerIsHowSure1 'btn-success'}}" {{action 'setHowSure' 1}} >{{t 'components.test-question.howSure.1'}}</button>
+                <button class="btn btn-default {{if answerIsHowSure2 'btn-success'}}" {{action 'setHowSure' 2}} >{{t 'components.test-question.howSure.2'}}</button>
+                <button class="btn btn-default {{if answerIsHowSure3 'btn-success'}}" {{action 'setHowSure' 3}} >{{t 'components.test-question.howSure.3'}}</button>
+                <button class="btn btn-default {{if answerIsHowSure4 'btn-success'}}" {{action 'setHowSure' 4}} >{{t 'components.test-question.howSure.4'}}</button>
+                <button class="btn btn-default {{if answerIsHowSure5 'btn-success'}}" {{action 'setHowSure' 5}} >{{t 'components.test-question.howSure.5'}}</button>
+            </div>
+        </div>
+
+    {{#if question.needsArgumentation}}
+        <div class="form-group">
+            <label>
+              {{#if question.isWeb}}
+                {{t 'components.test-question.argumentation.web'}}
+              {{else}}
+                {{t 'components.test-question.argumentation.email'}}
+              {{/if}}
+            </label>
+          {{textarea value=answer.argumentation cols="80" rows="6"}}
+        </div>
+    {{/if}}
+
+        <div class="form-group">
+            <label >
+              {{t 'components.test-question.provider'}}
+            </label>
+            <div class="btn-wrapper has-account-wrapper">
+                <button class="btn btn-default {{if answerHasAccountAtProvider 'btn-success'}}" {{action 'setHasAccountAtProvider' true}} >{{t 'components.test-question.provider.yes'}}</button>
+                <button class="btn btn-default {{if answerHasNoAccountAtProvider 'btn-success'}}" {{action 'setHasAccountAtProvider' false}} >{{t 'components.test-question.provider.no'}}</button>
+            </div>
+        </div>
+
+        <div class="form-group">
+          {{#if isLastQuestion}}
+              <button class="btn btn-default btn-block" {{action 'finishedLastQuestion'}} {{bind-attr disabled=isButtonDisabled}}>{{t 'components.test-question.buttons.submit'}}</button>
+          {{else}}
+              <button class="btn btn-default btn-block" {{action 'showNextQuestion'}} {{bind-attr disabled=isButtonDisabled}}>{{t 'components.test-question.buttons.next'}}</button>
+          {{/if}}
+        </div>
+    </div>
+</div>
+
