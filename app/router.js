@@ -23,6 +23,8 @@ Router.map(function() {
   this.route('password-forgotten');
   this.route('reset-password', { path: '/reset-password/:token' });
   this.route('certificate');
+  this.route('imprint');
+  this.route('contact');
 });
 
 export default Router;

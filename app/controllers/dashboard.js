@@ -24,7 +24,7 @@ export default Ember.Controller.extend({
   init: function () {
     window.dev = function(){
       Ember.$('#dev-wrapper').removeClass('hide');
-    }
+    };
   },
 
   /**

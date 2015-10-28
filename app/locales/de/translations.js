@@ -157,7 +157,38 @@ export default {
       'end': {
         'repeatLevels': 'Folgende Level sollten Sie sich noch einmal angucken:',
         'certificateUnlocked.1': 'Herzlichen Glückwunsch! Mit diesem perfekten Ergebnis haben Sie das',
-        'certificateUnlocked.2': 'freigeschaltet. In 4 Wochen wird außerdem der Retentiontest für Sie freigeschaltet. Wir werden Sie dann per E-Mail daran erinnern.'
+        'certificateUnlocked.2': 'freigeschaltet. In 4 Wochen wird außerdem der Retentiontest für Sie freigeschaltet. Wir werden Sie dann per E-Mail daran erinnern.',
+        'result': 'Sie haben {{actual}} von {{total}} Fragen richtig beantwortet.',
+        'repeat': 'Bevor Sie das aber tun, sollten Sie sich insbesondere die folgenden Level noch einmal anschauen:',
+        'lessThan75Percent': {
+          'caption': 'Das war leider nicht so gut!',
+          'caption.right': 'Das war ganz okay!',
+          'text.1': 'Das',
+          'text.2': 'erhalten Sie wenn Sie alle Fragen richtig beantwortet haben. Allerdings beträgt Ihr Score weniger als 75%. Dieser berechnet sich aus der Anzahl richtig beantworteter Fragen und Ihrer Angaben darüber, wie sicher Sie sich über ihre Antwort waren. Sollten Sie also alle Fragen korrekt beantwortet haben, waren Sie sich aber immer sehr unsicher und wir raten Ihnen, den Posttest zu wiederholen.',
+          'text.right.1': 'Sie haben alle Fragen richtig beantwortet und erhalten somit das',
+          'text.right.2': '! Trotzdem waren Sie sich oft unsicher und sollten daher einige Level wiederholen um sicher Phishing-Attacken zu erkennen.'
+        },
+        'lessThan90Percent': {
+          'caption': 'Das war schon ganz gut!',
+          'caption.right': 'Das war schon ganz okay!',
+          'text.1': 'Das ist ein gutes Ergebnis, trotzdem war noch der ein oder andere Fehler dabei, oder Sie waren sich oft sehr unsicher bei Ihrer Antwort. Um das',
+          'text.2': 'zu erhalten, müssen Sie alle Fragen richtig und sicher beantworten.',
+          'text.right.1': 'Sie haben alle Fragen richtig beantwortet und erhalten somit das',
+          'text.right.2': '! Trotzdem waren Sie sich oft unsicher und sollten daher einige Level wiederholen um sicher Phishing-Attacken zu erkennen.'
+        },
+        'greaterThan90Percent': {
+          'caption': 'Sehr gut!',
+          'caption.right': 'Sehr gut!',
+          'text.1': 'Das ist ein gutes Ergebnis, trotzdem war noch der ein oder andere Fehler dabei, oder Sie waren sich oft sehr unsicher bei Ihrer Antwort. Um das',
+          'text.2': 'zu erhalten, müssen Sie alle Fragen richtig beantworten',
+          'text.right.1': 'Sie haben alle Fragen richtig beantwortet und erhalten somit das',
+          'text.right.2': '! Trotzdem waren Sie sich teilweise unsicher und sollten daher einige Level wiederholen um sicher Phishing-Attacken zu erkennen.'
+        },
+        'result100Percent': {
+          'caption': 'Sehr gut!',
+          'text.1': 'Sie haben alle Fragen richtig und sicher beantwortet und erhalten somit das',
+          'text.2': '. Das ist ein super Ergebnis! Schauen Sie in 4 Wochen wieder vorbei, um beim Retention-Test festzustellen, ob Sie immernoch alle Tricks erkennen.'
+        }
       }
     }
   },

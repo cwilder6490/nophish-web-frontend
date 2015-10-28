@@ -8,9 +8,11 @@
 import Ember from 'ember';
 import ENV from '../config/environment';
 import TestAnswer from '../models/test-answer';
+import { translationMacro as t } from "ember-i18n";
 
 export default Ember.Controller.extend({
   needs: ['application'],
+  i18n: Ember.inject.service(),
 
   showStartDialog: true,
   showPreTestQuestions: false,
@@ -92,15 +94,42 @@ export default Ember.Controller.extend({
     submitPreTest: function () {
       let correctAnswers = 0;
       let totalAnswers = 0;
+
+      let points = 0;
+
       let answers = this.get('answers').map(function(answer){
         let returnAnswer = answer.toJSON();
         totalAnswers++;
         let questionIsPhishing = this.get('model.questions').filterBy('id', returnAnswer.question).get('firstObject.isPhishing') === 'true';
         if(returnAnswer.isPhishing === questionIsPhishing){
           correctAnswers++;
+          points += 100 * returnAnswer.howSure / 5;
         }
         return returnAnswer;
       }.bind(this));
+
+      let maxPoints = totalAnswers * 100;
+      this.setProperties({
+        lessThan75Percent: false,
+        lessThan90Percent: false,
+        greaterThan90Percent: false,
+        result100Percent: false
+      });
+      let percentageRight = points / maxPoints;
+
+      if(percentageRight < .75){
+        this.set('lessThan75Percent', true);
+      }
+      else if(percentageRight < .90){
+        this.set('lessThan90Percent', true);
+      }
+      else if(percentageRight === 1){
+        this.set('result100Percent', true);
+      }
+      else{
+        this.set('greaterThan90Percent', true);
+      }
+      console.log(points, maxPoints, correctAnswers, totalAnswers);
 
       Ember.$.post(ENV.APP.backendURL + '/test/finishPostTest', {answers: answers, correctAnswers: correctAnswers, totalAnswers: totalAnswers}).done(function (data) {
         if(data.success === true){

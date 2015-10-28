@@ -14,7 +14,7 @@ module.exports = function(environment) {
     },
 
     APP: {
-      backendURL: (environment === 'production') ? 'http://api.nophish.palberg.de' : 'http://localhost:1337',
+      backendURL: (environment === 'production') ? 'https://api.nophish-web.secuso.org' : 'http://localhost:1337',
       apiKey: 'v1'
     },
 
