@@ -1,4 +1,4 @@
-export default {
+    export default {
   'default': {
     'application': {
       'name': 'NOPHISH'
@@ -22,11 +22,11 @@ export default {
         },
         '2': {
           'title': 'Kostenlose Registrierung',
-          'content': 'Bevor Sie starten können müssen Sich sich registrieren. Folgen Sie hierzu einfach den einzelnen Schritten, nachdem Sie auf den Menüpunkt „Registrieren“ geklickt haben.Nach der Registrierung erhalten Sie eine Bestätigungs-E-Mail. Zum erfolgreichen Abschließen der Registrierung klicken Sie bitte auf den in der E-Mail enthaltenen Link. Anschließend können Sie mit Hilfe eines Vortest herausfinden wie es um ihren aktuellen Wissensstand zum Thema Phishing steht. Je nachdem wie gut der Test läuft, haben Sie danach die Möglichkeit manche Level von NoPhish zu überspringen.'
+          'content': 'Bevor Sie starten können, müssen Sich sich zuerst registrieren. Folgen Sie hierzu einfach den einzelnen Schritten, nachdem Sie auf den Menüpunkt „Registrieren“ geklickt haben. Nach der Registrierung erhalten Sie eine Bestätigungs-E-Mail. Zum erfolgreichen Abschließen der Registrierung klicken Sie bitte auf den in der E-Mail enthaltenen Link. Anschließend können Sie mit Hilfe eines Vortests herausfinden wie es um ihren aktuellen Wissensstand zum Thema Phishing steht.'
         },
         '3': {
           'title': 'Und los gehts',
-          'content': 'Zu Beginn jedes Levels erhalten Sie eine kurze Einführung über die Inhalte des Levels bevor Sie in den anschließenden Aufgaben Phishing-Links von vertrauenswürdigen Links unterscheiden sollen. Nach erfolgreichem Abschluss aller Level, folgt ein Abschlusstest, der Ihnen Ihren Lernerfolg aufzeigen soll. Schließlich erhalten Sie ein Zertifikat über die erfolgreiche Teilnahme. Nach vier Wochen folgt ein Retention-Test, der Ihnen die Möglichkeit bietet, festzustellen, ob Sie noch genau so fit in diesem Thema sind, oder ob sie manche Level wiederholen könnten.'
+          'content': 'Zu Beginn jedes Levels erhalten Sie eine kurze Einführung über die Inhalte des Levels bevor Sie in den anschließenden Aufgaben Phishing-Links von vertrauenswürdigen Links unterscheiden sollen. Nach erfolgreichem Abschluss aller Level erhalten Sie die Möglichkeit ein Zertifikat über die erfolgreiche Teilnahme am Anti-Phishing-Training anzufordern. Weiterhin empfehlen wir Ihnen ungefähr vier Wochen nach Absolvierung des Trainings die Durchführung des Wiederholungstests, um das Gelernte wieder aufzufrischen und eventuelle Wissens-Lücken zu erkennen.'
         }
       }
     }
@@ -131,16 +131,16 @@ export default {
   },
   'preTest': {
     'header':{
-      'title': 'Vortest'
+      'title': 'Und los gehts!'
     },
     'body': {
       'start': {
         'continue': 'Vortest beginnen',
-        'continue.text': 'Durch den Vortest kann Ihr bisheriges Wissen zum Thema Phishing festgestellt werden. Außerdem können Sie auf dieser Grundlage eventuell einige Level des Spiels überspringen.',
+        'continue.text': 'Der Vortest ist zurzeit leider deaktiviert, wir arbeiten an einer Lösung. Überspringen Sie den Vortest bitte vorerst.',
         'continue.confirm': 'Vortest beginnen',
         'skip': 'Vortest überspringen',
-        'skip.text': 'Wenn Sie den Vortest überspringen, müssen Sie alle Level spielen, um das Zertifikat zu erhalten. Außerdem können Sie den Vortest später nicht nachholen.',
-        'skip.confirm': 'Vortest überspringen'
+        'skip.text': 'Zuerst empfehlen wir Ihnen an dieser Stelle die Durchführung des Vorabtests zur Erhebung Ihres aktuellen Wissenstands. Dieser Test dient dem Zweck herauszufinden, ob und wie gut sie bösartige Phishing-Webseiten erkennen können. Öffnen Sie nun bitte in einem neuen Fenster den Vorabtest der Forschungsgruppe SECUSO (unten angegebener Link). Nach Abschluss des Tests können Sie das Fenster wieder schließen und das Anti-Phishing- Training hier fortsetzen.<br /><br /><p align="center"><b>Quiz 1:</b> <a href="https://www.soscisurvey.de/NoPhish-Survey/?q=Pre" target="_blank">Vorabtest zur Erhebung des aktuellen Wissenstands</a></p><br />',
+        'skip.confirm': 'Weiter zu den Leveln'
       }
     }
   },
@@ -195,7 +195,8 @@ export default {
   'certificate': {
     'body': {
       'text.1': 'Glückwunsch, Sie haben sich das Zertifikat verdient!',
-      'text.2': 'Das Zertifikat wird manuell erstellt und Ihnen per E-Mail zugeschickt. Tragen Sie dazu bitte Ihren Namen in das Textfeld ein. Ihr Name wird lediglich für die Erstellung des Zertifikats benötigt und nicht an Dritte weitergegeben.',
+      'text.2': 'Das Zertifikat wird manuell erstellt und Ihnen per E-Mail zugeschickt. Schicken Sie uns dazu bitte eine E-Mail mit Ihrem Namen an: ',
+      'text.7': 'Das Zertifikat wird manuell erstellt und Ihnen per E-Mail zugeschickt. Tragen Sie dazu bitte Ihren Namen in das Textfeld ein. Ihr Name wird lediglich für die Erstellung des Zertifikats benötigt und nicht an Dritte weitergegeben.',
       'text.3': 'Bitte beachten Sie, dass es einige Tage dauern kann, bis Sie Ihr Zertifikat erhalten.',
       'name': 'Ihr Name'
     }
@@ -249,7 +250,9 @@ export default {
     }
   },
   'finishedAllLevels': {
-    'text': 'Sie haben das Spiel komplett durchgespielt. Dabei haben Sie viel gelernt und sind nun gegen gänginge Phishing-Tricks gewappnet. Wenn Sie weiterhin üben möchten, vor allem um das Gelernte mal wieder aufzufrischen, können Sie über den Level-Überblick in die einzelnen Levels springen.',
+    'text': 'Sie haben das Spiel komplett durchgespielt. Dabei haben Sie viel gelernt und sind nun gegen gängige Phishing-Tricks gewappnet. Wenn Sie weiterhin üben möchten, vor allem um das Gelernte mal wieder aufzufrischen, können Sie über den Level-Überblick in die einzelnen Levels springen. ',
+    'text2': 'Im Folgenden empfehlen wir Ihnen ungefähr vier Wochen nach Absolvierung des Trainings die Durchführung des Wiederholungstests um das Gelernte wieder aufzufrischen und eventuelle Wissens-Lücken zu erkennen. Hierfür senden wir Ihnen eine Mail mit dem Link zum Wiederholungstest.',
+    'text3': 'Des Weiteren haben Sie nun die Möglichkeit auf der Übersichts-Seite ein Zertifikat über Ihre erfolgreiche Teilnahme am Anti-Phishing-Training anzufordern.',
     'postTest.1': 'Sie haben nun auch den',
     'postTest.2': 'freigeschaltet. Nachdem Sie diesen Test erfolgreich bestanden haben, erhalten Sie außerdem noch ein Zertifikat.',
     'greeting': 'Ihr NoPhish Team'

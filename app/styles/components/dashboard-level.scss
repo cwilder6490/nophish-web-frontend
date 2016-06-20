@@ -16,16 +16,16 @@ div.dashboard-level{
     div.dashboard-level-locked-icon, div.dashboard-level-skipped-icon, div.dashboard-level-check-icon{
       position: absolute;
       z-index: 5;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 25px;
+      left: 5px;
+      width: 2%;
+      height: 2%;
 
       i{
         display: block;
         text-align: left;
         vertical-align: middle;
-        font-size: 120px;
+        font-size: 100px;
         padding-left: 10%;
       }
 

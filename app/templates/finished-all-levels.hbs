@@ -16,6 +16,17 @@
 
             <br/>
 
+            <p>
+              {{t 'finishedAllLevels.text2'}}
+            </p>
+
+            <br/>
+
+            <p>
+              {{t 'finishedAllLevels.text3'}}
+            </p>
+
+            <!--
             {{#if user.postTestUnlocked}}
               {{#unless user.postTestDone}}
                   <p>
@@ -24,6 +35,7 @@
                   <br/>
               {{/unless}}
             {{/if}}
+            -->
 
             <p>
               Viele Grüße,<br/>
@@ -43,7 +55,7 @@
     {{#unless user.postTestDone}}
         <div class="row spacer">
             <div class="col-xs-12">
-                {{#link-to 'posttest' class='btn btn-default'}}Zum Nachtest{{/link-to}}
+                {{#link-to 'dashboard' class='btn btn-default'}}Zurück zur Übersicht{{/link-to}}
             </div>
         </div>
     {{/unless}}

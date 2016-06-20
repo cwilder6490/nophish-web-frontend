@@ -42,6 +42,7 @@ export default Ember.Controller.extend({
       unlocked: true,
       done: this.get('user.preTestDone'),
       doneText: 'Durchgeführt mit ' + this.get('user.preTestCorrectAnswers') + '/' + this.get('user.preTestTotalAnswers'),
+      preventDoneLook: false,
       skipped: this.get('user.preTestSkipped'),
       name: 'Vortest'
     });
@@ -96,7 +97,7 @@ export default Ember.Controller.extend({
    */
   certificateStatus: function () {
     return Ember.Object.create({
-      unlocked: this.get('user.certificateUnlocked'),
+      unlocked: this.get('user.postTestUnlocked'),
       name: 'Zertifikat'
     });
   }.property('user'),
@@ -106,9 +107,10 @@ export default Ember.Controller.extend({
    */
   retentionTestStatus: function () {
     return Ember.Object.create({
-      unlocked: this.get('user.retentionTestUnlocked'),
-      done: this.get('user.retentionTestDone'),
-      doneText: 'Durchgeführt mit ' + this.get('user.retentionTestCorrectAnswers') + '/' + this.get('user.retentionTestTotalAnswers'),
+      unlocked: false, //this.get('user.retentionTestUnlocked'),
+      done: true, //this.get('user.retentionTestDone'),
+      preventDoneLook: true,
+      doneText: 'Nicht verfügbar',//'Durchgeführt mit ' + this.get('user.retentionTestCorrectAnswers') + '/' + this.get('user.retentionTestTotalAnswers'),
       name: 'Retentiontest'
     });
   }.property('user'),

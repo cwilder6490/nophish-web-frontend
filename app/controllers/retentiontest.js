@@ -121,7 +121,7 @@ export default Ember.Controller.extend({
             let question = this.get('model.questions').filterBy('id', answer.get('question')).get('firstObject');
             let questionIsPhishing = question.get('isPhishing') === 'true';
             if(answer.get('isPhishing') !== questionIsPhishing && typeof(question.get('belongsToLevel')) === 'string'){
-              let level = data.levels.filter(lvl => {return lvl.id === question.get('belongsToLevel')})[0];
+              let level = data.levels.filter(lvl => {return lvl.id === question.get('belongsToLevel');})[0];
               if(failedLevels.every(lvl => lvl.get('id') !== level.id)){
                 failedLevels.pushObject(Ember.Object.create(level));
               }

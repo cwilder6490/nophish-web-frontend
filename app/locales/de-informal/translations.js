@@ -2,7 +2,7 @@ export default {
   'preTest': {
     'body': {
       'start': {
-        'continue.text': 'Durch den Vortest kann dein bisheriges Wissen zum Thema Phishing festgestellt werden. Außerdem kannst du auf dieser Grundlage eventuell einige Level des Spiels überspringen.',
+        'continue.text': 'Der Vortest ist zurzeit leider deaktiviert, wir arbeiten an einer Lösung. Überspringe den Vortest bitte vorerst.',
         'skip.text': 'Wenn du den Vortest überspringst, musst du alle Level spielen, um das Zertifikat zu erhalten. Außerdem kannst du den Vortest später nicht nachholen.'
       }
     }
@@ -53,7 +53,7 @@ export default {
   'certificate': {
     'body': {
       'text.1': 'Glückwunsch, Du hast dir das Zertifikat verdient!',
-      'text.2': 'Das Zertifikat wird manuell erstellt und dir per E-Mail zugeschickt. Trage dazu bitte deinen Namen in das Textfeld ein. Dein Name wird lediglich für die Erstellung des Zertifikats benötigt und nicht an Dritte weitergegeben.',
+      'text.2': 'Das Zertifikat wird manuell erstellt und dir per E-Mail zugeschickt. Schicke dazu bitte eine Mail an: ',
       'text.3': 'Bitte beachte, dass es einige Tage dauern kann, bis du dein Zertifikat erhälst.',
       'name': 'Dein Name'
     }
@@ -92,6 +92,8 @@ export default {
   },
   'finishedAllLevels': {
     'text': 'Du hast das Spiel komplett durchgespielt. Dabei hast du viel gelernt und bist nun gegen gänginge Phishing-Tricks gewappnet. Wenn du weiterhin üben möchtest, vor allem um das Gelernte mal wieder aufzufrischen, kannst du über den Level-Überblick in die einzelnen Levels springen.',
+    'text2': 'Im Folgenden empfehlen wir dir ungefähr vier Wochen nach Absolvierung des Trainings die Durchführung des Wiederholungstests um das Gelernte wieder aufzufrischen und eventuelle Wissens-Lücken zu erkennen. Hierfür senden wir dir eine Mail mit dem Link zum Wiederholungstest.',
+    'text3': 'Des Weiteren hast du nun die Möglichkeit auf der Übersichts-Seite ein Zertifikat über deine erfolgreiche Teilnahme am Anti-Phishing-Training anzufordern.',
     'postTest.1': 'Du hast nun auch den',
     'postTest.2': 'freigeschaltet. Nachdem du diesen Test erfolgreich bestanden hast, erhälst du außerdem noch ein Zertifikat.',
     'greeting': 'Dein NoPhish Team'
