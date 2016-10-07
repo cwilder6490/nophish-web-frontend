@@ -26,7 +26,11 @@
         },
         '3': {
           'title': 'Und los gehts',
-          'content': 'Zu Beginn jedes Levels erhalten Sie eine kurze Einführung über die Inhalte des Levels bevor Sie in den anschließenden Aufgaben Phishing-Links von vertrauenswürdigen Links unterscheiden sollen. Nach erfolgreichem Abschluss aller Level erhalten Sie die Möglichkeit ein Zertifikat über die erfolgreiche Teilnahme am Anti-Phishing-Training anzufordern. Weiterhin empfehlen wir Ihnen ungefähr vier Wochen nach Absolvierung des Trainings die Durchführung des Wiederholungstests, um das Gelernte wieder aufzufrischen und eventuelle Wissens-Lücken zu erkennen.'
+          'content': 'Zu Beginn jedes Levels erhalten Sie eine kurze Einführung über die Inhalte des Levels bevor Sie in den anschließenden Aufgaben Phishing-Links von vertrauenswürdigen Links unterscheiden sollen. Nach erfolgreichem Abschluss aller Level erhalten Sie die Möglichkeit ein Zertifikat über die erfolgreiche Teilnahme am Anti-Phishing-Training anzufordern. Weiterhin empfehlen wir Ihnen ungefähr vier Wochen nach Absolvierung des Trainings die Durchführung des Wiederholungstests, um das Gelernte wieder aufzufrischen und eventuelle Wissens-Lücken zu erkennen.<br /><br /><b>Hinweis:</b><br>Die im Folgenden verwendeten Webadressen sollen lediglich als Beispiele dienen. Im Einzelfall kann es jedoch sein, dass die verwendeten Webadressen direkt von dem imitierten Unternehmen selbst registriert worden sind, um Betrugsversuche zu unterbinden. Ebenso können sie auch von Einzelpersonen oder Unternehmen registriert worden sein, die damit jedoch keinerlei Betrug beabsichtigen.'
+      },
+        '4': {
+          'title': 'Danksagung',
+          'content': 'Die Schulungseinheiten wurden innerhalb des vom <a href="http://www.bmwi.de/">Bundesministerium für Wirtschaft und Energie</a> im Rahmen der Initiative <a href="http://www.it-sicherheit-in-der-wirtschaft.de/">IT-Sicherheit in der Wirtschaft</a> geförderten Projekts <a href="https://www.secuso.informatik.tu-darmstadt.de/de/secuso/forschung/forschungsprojekte/kmu-aware-bmwi/">KMU AWARE</a> entwickelt. Die erste Version der Web-App war Teil des Bachelorpraktikums von Sven Palberg, Eric Piegert, Tessa Lottermann und Alexandra Kunz. Inzwischen wird diese von den KMU AWARE Mitarbeitern weiterentwickelt.'
         }
       }
     }
@@ -310,7 +314,7 @@
           'wrong': 'Leider konnten Sie den Wer-Bereich nicht identifizieren. Daher verlieren Sie ein Leben.'
         },
         'decide': {
-          'right.nophish': 'Gut gemacht. Diese Webadresse ist nicht gefälscht, ihr können Sie vertrauen.',
+          'right.nophish': 'Gut gemacht. Diese Webadresse ist nicht gefälscht.',
           'right.phish': 'Sie haben den Phish erkannt. Herzlichen Glückwunsch.',
           'wrong.nophish': 'Diese Webadresse ist nicht gefälscht. ihr können Sie ruhig vertrauen. Daher verlieren Sie ein Leben.',
           'wrong.phish': 'Falsch! Sie wurden ausgetrickst. Das ist eine gefälschte Webadresse. Daher verlieren Sie ein Leben.'

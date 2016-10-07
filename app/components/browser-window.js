@@ -68,12 +68,12 @@ export default Ember.Component.extend({
         url: {
           order: 2,
           style: '',
-          protocol: 'display:none;color:#38A83A',
+          protocol: 'display:none;color:#000000',//38A83A',
           protocolSlashes: 'display:none;',
           subDomain: 'color:#000000',
           domain: 'color:#000000',
           tld: 'color:#000000',
-          path: 'color:#9FA1A5'
+          path: 'color:#000000'//9FA1A5'
         }
       },
       firefox: {
@@ -88,12 +88,12 @@ export default Ember.Component.extend({
         url: {
           order: 2,
           style: '',
-          protocol: 'display:none;color:#9FA1A5',
+          protocol: 'display:none;color:#000000',//9FA1A5',
           protocolSlashes: 'display:none;',
-          subDomain: 'color:#9FA1A5',
+          subDomain: 'color:#000000',//9FA1A5',
           domain: 'color:#000000',
-          tld: 'color:#9FA1A5',
-          path: 'color:#9FA1A5'
+          tld: 'color:#000000',//9FA1A5',
+          path: 'color:#000000'//9FA1A5'
         }
       },
       ie: {
@@ -108,11 +108,11 @@ export default Ember.Component.extend({
         url: {
           order: 1,
           style: 'flex-grow:5;',
-          protocol: 'color:#9FA1A5',
-          subDomain: 'color:#9FA1A5',
+          protocol: 'color:#000000',//9FA1A5',
+          subDomain: 'color:#000000',//9FA1A5',
           domain: 'color:#000000',
           tld: 'color:#000000',
-          path: 'color:#9FA1A5'
+          path: 'color:#000000'//9FA1A5'
         }
       },
       safari: {
@@ -122,7 +122,7 @@ export default Ember.Component.extend({
         height: '23px',
         https: {
           order: 2,
-          style: 'color:#31643F;margin-left:5px;'
+          style: 'display:none;margin-left:5px;'//'color:#31643F;margin-left:5px;'
         },
         url: {
           order: 1,
@@ -148,11 +148,11 @@ export default Ember.Component.extend({
         url: {
           order: 2,
           style: '',
-          protocol: 'color:#38A83A',
+          protocol: 'color:#000000',//38A83A',
           subDomain: 'color:#000000',
           domain: 'color:#000000',
           tld: 'color:#000000',
-          path: 'color:#9FA1A5'
+          path: 'color:#000000'//9FA1A5'
         }
       },
       firefox: {
@@ -167,11 +167,11 @@ export default Ember.Component.extend({
         url: {
           order: 2,
           style: '',
-          protocol: 'color:#9FA1A5',
-          subDomain: 'color:#9FA1A5',
+          protocol: 'color:#000000',//9FA1A5',
+          subDomain: 'color:#000000',//9FA1A5',
           domain: 'color:#000000',
-          tld: 'color:#9FA1A5',
-          path: 'color:#9FA1A5'
+          tld: 'color:#000000',//9FA1A5',
+          path: 'color:#000000'//9FA1A5'
         }
       },
       ie: {
@@ -186,11 +186,11 @@ export default Ember.Component.extend({
         url: {
           order: 1,
           style: 'flex-grow:5;',
-          protocol: 'color:#9FA1A5',
-          subDomain: 'color:#9FA1A5',
+          protocol: 'color:#000000',//9FA1A5',
+          subDomain: 'color:#000000',//9FA1A5',
           domain: 'color:#000000',
           tld: 'color:#000000',
-          path: 'color:#9FA1A5'
+          path: 'color:#000000'//9FA1A5'
         }
       },
       safari: {
@@ -226,11 +226,11 @@ export default Ember.Component.extend({
         url: {
           order: 2,
           style: '',
-          protocol: 'color:#38A83A',
+          protocol: 'color:#000000',//38A83A',
           subDomain: 'color:#000000',
           domain: 'color:#000000',
           tld: 'color:#000000',
-          path: 'color:#9FA1A5'
+          path: 'color:#000000'//9FA1A5'
         }
       },
       firefox: {
@@ -245,11 +245,11 @@ export default Ember.Component.extend({
         url: {
           order: 2,
           style: '',
-          protocol: 'color:#9FA1A5',
-          subDomain: 'color:#9FA1A5',
+          protocol: 'color:#000000',//9FA1A5',
+          subDomain: 'color:#000000',//9FA1A5',
           domain: 'color:#000000',
-          tld: 'color:#9FA1A5',
-          path: 'color:#9FA1A5'
+          tld: 'color:#000000',//9FA1A5',
+          path: 'color:#000000'//9FA1A5'
         }
       },
       ie: {
@@ -264,11 +264,11 @@ export default Ember.Component.extend({
         url: {
           order: 1,
           style: 'flex-grow:5;',
-          protocol: 'color:#9FA1A5',
-          subDomain: 'color:#9FA1A5',
+          protocol: 'color:#000000',//9FA1A5',
+          subDomain: 'color:#000000',//9FA1A5',
           domain: 'color:#000000',
           tld: 'color:#000000',
-          path: 'color:#9FA1A5'
+          path: 'color:#000000'//9FA1A5'
         }
       },
       safari: {
@@ -295,7 +295,7 @@ export default Ember.Component.extend({
     let styles = http;
     if(this.get('url.protocol') === 'https'){
       if(this.get('url.hasExtendedValidationCertificate')){
-        styles = httpsEv;
+        styles = https;//httpsEv;
       }
       else{
         styles = https;
@@ -356,7 +356,7 @@ export default Ember.Component.extend({
     }.bind(this));
 
     let actualStyles = styles;
-    this.set('headerUrlPosition', 'height:' + actualStyles.height + ';top:' + actualStyles.top + ';left:' + actualStyles.left + ';right:' + actualStyles.right);
+    this.set('headerUrlPosition', 'height:' + actualStyles.height + ';top:' + actualStyles.top + ';left:' + '10px' + ';right:' + actualStyles.right);
 
     let httpsStyle = [
       'order:' + actualStyles.https.order,
